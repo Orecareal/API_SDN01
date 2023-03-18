@@ -23,9 +23,12 @@ from api_siswa import api_views as siswa_views
 
 router = routers.DefaultRouter()
 router.register(r'staff', staff_views.StaffViewSets)
-router.register(r'mapel', staff_views.MapelViewsets)
+router.register(r'kelas', staff_views.KelasViewsets)
+
+router.register(r'mapel', guru_views.MapelViewsets)
 router.register(r'guru', guru_views.GuruViewSets)
 router.register(r'mapel_guru', guru_views.MapelGuruViewsets)
+
 router.register(r'siswa', siswa_views.SiswaViewSets)
 
 

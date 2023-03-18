@@ -1,6 +1,7 @@
 from django.contrib import admin
-from api_guru.models import DataGuru, MapelGuru
+from api_guru.models import DataGuru, DataMapel,MapelGuru
 
 # Register your models here.
 admin.site.register(DataGuru)
+admin.site.register(DataMapel)
 admin.site.register(MapelGuru)

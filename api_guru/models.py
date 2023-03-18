@@ -1,5 +1,4 @@
 from django.db import models
-from api_staf.models import DataMapel
 import datetime
 # Create your models here.
 
@@ -17,7 +16,7 @@ jbt_guru = [
 
 
 class DataGuru(models.Model):
-    kd_guru = models.CharField(max_length=13, null=False, unique=True)
+    kd_guru = models.CharField(max_length=13, unique=True)
     nm_guru = models.CharField(max_length=100, null=False)
     jbt_guru = models.CharField(max_length=100, choices=jbt_guru)
     jen_kel = models.CharField(max_length=12, choices=jen_kel)
@@ -36,6 +35,20 @@ class DataGuru(models.Model):
          verbose_name_plural = 'Guru'
 
 
+class DataMapel(models.Model):
+    kd_mapel = models.CharField(max_length=13, null=False, unique=True)
+    nm_mapel = models.CharField(max_length=100, null=False)
+    kkm_mapel = models.FloatField(max_length=3, default=7.00)
+    created = models.DateTimeField(default=datetime.datetime.now())
+    updated = models.DateTimeField(default=datetime.datetime.now())
+
+    def __str__(self):
+        return f'{self.kd_mapel} - {self.nm_mapel}'
+        
+    class Meta:
+         verbose_name_plural = 'Mapel'
+
+         
 class MapelGuru(models.Model):
     id_guru = models.ForeignKey(DataGuru, to_field="kd_guru", db_column="kd_guru", on_delete=models.CASCADE)
     id_mapel = models.ForeignKey(DataMapel, to_field="kd_mapel", db_column="kd_mapel", on_delete=models.CASCADE)

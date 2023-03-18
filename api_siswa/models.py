@@ -9,7 +9,7 @@ jen_kel = [
 
 
 class DataSiswa(models.Model):
-    nis_siswa = models.CharField(max_length=13, null=False, unique=True)
+    nis_siswa = models.CharField(max_length=13, unique=True)
     nm_siswa = models.CharField(max_length=100, null=False)
     jen_kel = models.CharField(max_length=12, choices=jen_kel)
     thn_masuk = models.DateField(default=datetime.datetime.now().strftime('%Y-%m-%d'))
@@ -24,4 +24,4 @@ class DataSiswa(models.Model):
         return f'{self.nis_siswa} - {self.nm_siswa}'
 
     class Meta:
-         verbose_name_plural = 'Guru'
+         verbose_name_plural = 'Siswa'

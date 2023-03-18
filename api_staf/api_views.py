@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from api_staf.models import DataStaff, DataMapel
-from api_staf.serializers import StaffSerializer as ss, MapelSerializer as ms
+from api_staf.models import DataStaff, DataKelas
+from api_staf.serializers import StaffSerializer as ss, KelasSerializer as ks
 
 
 class StaffViewSets(viewsets.ModelViewSet):
@@ -9,7 +9,9 @@ class StaffViewSets(viewsets.ModelViewSet):
     http_method_names = ['get', 'post']
 
 
-class MapelViewsets(viewsets.ModelViewSet):
-    queryset = DataMapel.objects.all()
-    serializer_class = ms
+class KelasViewsets(viewsets.ModelViewSet):
+    queryset = DataKelas.objects.all()
+    serializer_class = ks
     http_method_names = ['get', 'post']
+
+
