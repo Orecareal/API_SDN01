@@ -5,10 +5,10 @@ from api_staf.models import  DataStaff, DataMapel
 class StaffSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataStaff
-        fields = '__all__'
+        fields = ('kd_staf', 'nm_staff', 'jen_kel', 'thn_aktif', 'thn_nonaktif')
 
 
 class MapelSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataMapel
-        fields = '__all__'
+        fields = ('kd_mapel', 'nm_mapel', 'kkm_mapel')
