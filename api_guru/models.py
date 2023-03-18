@@ -23,6 +23,9 @@ class DataGuru(models.Model):
     jen_kel = models.CharField(max_length=12, choices=jen_kel)
     thn_aktif = models.DateField(default=datetime.datetime.now().strftime('%Y-%m-%d'))
     thn_nonaktif = models.DateField(blank=True, null=True)
+    alamat = models.TextField(max_length=300, blank=True)
+    no_hp = models.CharField(max_length=15, blank=True)
+    email = models.CharField(max_length=100, blank=True, null=True)
     created = models.DateTimeField(default=datetime.datetime.now())
     updated = models.DateTimeField(default=datetime.datetime.now())
 
