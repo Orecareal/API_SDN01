@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api_staf import api_views
+from api_staf import api_views as staff_views
+from api_guru import api_views as guru_views
+
 
 router = routers.DefaultRouter()
-router.register(r'staff', api_views.StaffViewSets )
-router.register(r'mapel', api_views.MapelViewsets )
+router.register(r'staff', staff_views.StaffViewSets)
+router.register(r'mapel', staff_views.MapelViewsets)
+router.register(r'guru', guru_views.GuruViewSets)
+router.register(r'mapel_guru', guru_views.MapelGuruViewsets)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-
 ]
