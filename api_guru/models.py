@@ -55,5 +55,20 @@ class MapelGuru(models.Model):
     created = models.DateTimeField(default=datetime.datetime.now())
     updated = models.DateTimeField(default=datetime.datetime.now())
     
+    def __str__(self):
+        return f'Pengajar: {self.id_guru} / Mapel: {self.id_mapel}'
+
     class Meta:
          verbose_name_plural = 'Mapel Guru'
+
+
+
+# class DataNilai(models.Model):
+#     id_mapel = models.ForeignKey(MapelGuru, blank=True, null=True, on_delete=models.CASCADE )
+#     id_siswa = models.ForeignKey(DataKelas, to_field="id", db_column="nis_siswa", blank=True, null=True, on_delete=models.CASCADE)
+#     nilai_siswa = models.FloatField(max_length=3, default=0.00)
+#     created = models.DateTimeField(default=datetime.datetime.now())
+#     updated = models.DateTimeField(default=datetime.datetime.now())
+
+#     class Meta:
+#          verbose_name_plural = 'Penilaian'
