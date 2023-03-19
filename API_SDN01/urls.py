@@ -19,6 +19,7 @@ from rest_framework import routers
 from api_staf import api_views as staff_views
 from api_guru import api_views as guru_views
 from api_siswa import api_views as siswa_views
+from api_penilaian import api_views as nilaiSiswa_views
 
 
 router = routers.DefaultRouter()
@@ -32,12 +33,11 @@ router.register(r'mapel_guru', guru_views.MapelGuruViewsets)
 
 router.register(r'siswa', siswa_views.SiswaViewSets)
 
+router.register(r'absensi_siswa', nilaiSiswa_views.SiswaAbsensiViewSets)
+router.register(r'nilai_siswa', nilaiSiswa_views.NilaiSiswaViewSets)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    # re_path(r'^api/v1/staff/(?P<kd_staff>.+)/$', staff_views.StaffDetail.as_view())
 ]
-
-
-urlpatterns += router.urls
