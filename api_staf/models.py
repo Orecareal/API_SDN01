@@ -43,7 +43,7 @@ class DataKelas(models.Model):
 
 
     def __str__(self):
-        return f'{self.kd_kelas},{self.kd_guru}'
+        return f'{self.kd_kelas} | Pengajar : {self.id_guru}, | Siswa : {self.id_siswa}'
         
     class Meta:
          verbose_name_plural = 'Kelas'
