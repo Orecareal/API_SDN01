@@ -43,6 +43,9 @@ class DataStaff(models.Model):
     created = models.DateTimeField(default=datetime.datetime.now())
     updated = models.DateTimeField(default=datetime.datetime.now())
 
+    def __str__(self):
+        return f"{self.kd_staf} {self.nm_staff}"
+
     class Meta:
          verbose_name_plural = 'Staff'
 
@@ -77,3 +80,17 @@ class DataKeuangan(models.Model):
         
     class Meta:
          verbose_name_plural = 'Keuangan'
+
+
+class DataBerita(models.Model):
+    judul = models.CharField(max_length=200)
+    isi = models.TextField()
+    author = models.ForeignKey(DataStaff, to_field="kd_staf", on_delete=models.CASCADE)
+    created = models.DateTimeField(default=datetime.datetime.now())
+    updated = models.DateTimeField(default=datetime.datetime.now())
+
+    def __str__(self):
+        return f"{self.judul} | by {self.author} | on {self.created}"
+        
+    class Meta:
+         verbose_name_plural = 'Berita & Acara'
