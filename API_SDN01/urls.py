@@ -20,6 +20,7 @@ from api_staf import api_views as staff_views
 from api_guru import api_views as guru_views
 from api_siswa import api_views as siswa_views
 from api_penilaian import api_views as nilaiSiswa_views
+from api_akutansi import api_views as pembayaran_views
 
 
 router = routers.DefaultRouter()
@@ -36,6 +37,8 @@ router.register(r'siswa', siswa_views.SiswaViewSets)
 
 router.register(r'absensi_siswa', nilaiSiswa_views.SiswaAbsensiViewSets)
 router.register(r'nilai_siswa', nilaiSiswa_views.NilaiSiswaViewSets)
+
+router.register(r'pembayaran', pembayaran_views.PembayaranViewSets)
 
 
 urlpatterns = [
