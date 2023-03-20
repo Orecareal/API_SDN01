@@ -1,6 +1,8 @@
 from django.db import models
 from api_siswa.models import DataSiswa
-from api_staf.models import DataStaff, DataKeuangan, DataGaji
+from api_staf.models import DataStaff, DataKeuangan
+from api_guru.models import DataGuru
+
 import datetime
 
 # Create your models here.
@@ -27,7 +29,21 @@ class GajiStaff(models.Model):
     updated = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
-        return f"{self.id_staff} | by {self.jml_bayar} | on {self.status}"
+        return f"{self.id_staff} | {self.jml_bayar} | {self.status}"
         
     class Meta:
          verbose_name_plural = 'Gaji Staff'
+
+
+class GajiGuru(models.Model):
+    id_guru = models.ForeignKey(DataGuru, to_field="kd_guru", blank=True, null=True, on_delete=models.CASCADE)
+    jml_bayar = models.CharField(max_length=30, null=False, default='-')
+    status = models.CharField(max_length=15, choices=[('Sudah Dibayar', 'Sudah Dibayar'), ('Tertunda', 'Tertunda')])
+    created = models.DateTimeField(default=datetime.datetime.now())
+    updated = models.DateTimeField(default=datetime.datetime.now())
+
+    def __str__(self):
+        return f"{self.id_guru} | {self.jml_bayar} | {self.status}"
+        
+    class Meta:
+         verbose_name_plural = 'Gaji Guru'

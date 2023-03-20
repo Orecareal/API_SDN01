@@ -28,6 +28,7 @@ router.register(r'staff', staff_views.StaffViewSets)
 router.register(r'kelas', staff_views.KelasViewsets)
 router.register(r'Keuangan', staff_views.KeuanganViewsets)
 router.register(r'berita_dan_acara', staff_views.BeritaViewsets)
+router.register(r'data_gaji', staff_views.GajiViewsets)
 
 router.register(r'mapel', guru_views.MapelViewsets)
 router.register(r'guru', guru_views.GuruViewSets)
@@ -40,6 +41,8 @@ router.register(r'absensi_siswa', nilaiSiswa_views.SiswaAbsensiViewSets)
 router.register(r'nilai_siswa', nilaiSiswa_views.NilaiSiswaViewSets)
 
 router.register(r'pembayaran', pembayaran_views.PembayaranViewSets)
+router.register(r'gaji_staff', pembayaran_views.GajiStaffViewSets)
+router.register(r'gaji_guru', pembayaran_views.GajiGuruViewSets)
 
 
 urlpatterns = [

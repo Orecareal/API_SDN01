@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'API_SDN01.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3_2023_03_W2_API_SDN01',
+        'NAME': BASE_DIR / 'API_SDN01.db',
     }
 }
 

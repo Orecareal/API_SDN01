@@ -1,7 +1,7 @@
 from rest_framework import viewsets
-from api_staf.models import DataStaff, DataKelas, DataKeuangan, DataBerita
+from api_staf.models import DataStaff, DataKelas, DataKeuangan, DataBerita, DataGaji
 from api_staf.serializers import StaffSerializer as ss, KelasSerializer as ks, \
-KeuanganSerializer as us, BeritaSerializer as bs
+KeuanganSerializer as us, BeritaSerializer as bs, GajiSerializer as gs
 
 
 class StaffViewSets(viewsets.ModelViewSet):
@@ -26,4 +26,10 @@ class KeuanganViewsets(viewsets.ModelViewSet):
 class BeritaViewsets(viewsets.ModelViewSet):
     queryset = DataBerita.objects.all()
     serializer_class = bs
+    http_method_names = ['get']
+
+
+class GajiViewsets(viewsets.ModelViewSet):
+    queryset = DataGaji.objects.all()
+    serializer_class = gs
     http_method_names = ['get']
