@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api_guru.models import DataGuru, MapelGuru, DataMapel
+from api_guru.models import DataGuru, MapelGuru, DataMapel, DataKonseling
 
 class GuruSerializers(serializers.ModelSerializer):
     class Meta:
@@ -19,16 +19,8 @@ class MapelSerializer(serializers.ModelSerializer):
         model = DataMapel
         fields = ('kd_mapel', 'nm_mapel', 'kkm_mapel')
 
-# class GuruDetailSerializer(serializers.ModelSerializer):
-#     guru = GuruSerializers()
-#     mapel = MapelGuruSerializer()
-#     detail = serializers.SerializerMethodField()
 
-#     class Meta:
-#         model = DataGuru
-#         fields = '__all__'
-    
-#     def get_detail():
-#         return{
-#             'Nama_guru':'obj.nm_guru',
-#         }
+class KonselingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DataKonseling
+        fields = '__all__'

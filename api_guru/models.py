@@ -1,4 +1,5 @@
 from django.db import models
+from api_siswa.models import DataSiswa
 import datetime
 # Create your models here.
 
@@ -11,7 +12,8 @@ jen_kel = [
 jbt_guru = [
     ('Guru Mapel', 'Guru Mata Pelajaran'),
     ('Guru Kelas', 'Guru Kelas'),
-    ('Guru Pendidikan Agama', 'Guru Pendidikan Agama')
+    ('Guru Pendidikan Agama', 'Guru Pendidikan Agama'),
+    ('Guru Konseling', 'Guru Konseling'),
 ]
 
 
@@ -60,3 +62,18 @@ class MapelGuru(models.Model):
 
     class Meta:
          verbose_name_plural = 'Mapel Guru'
+
+
+class DataKonseling(models.Model):
+    kd_siswa = models.ForeignKey(DataSiswa, to_field="nis_siswa", blank=True, null=True, on_delete=models.CASCADE)
+    kd_guru = models.ForeignKey(DataGuru, to_field="kd_guru", db_column="kd_guru", on_delete=models.CASCADE)
+    catatan = models.TextField()
+    status = models.CharField(max_length=30, choices=[('Berjalan', 'Berjalan'), ('Selesai', 'Selesai')])
+    created = models.DateTimeField(default=datetime.datetime.now())
+    updated = models.DateTimeField(default=datetime.datetime.now())
+    
+    def __str__(self):
+        return f'{self.kd_guru} | {self.kd_siswa} | {self.status}'
+
+    class Meta:
+         verbose_name_plural = 'Konseling'
