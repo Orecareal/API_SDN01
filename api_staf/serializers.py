@@ -11,16 +11,16 @@ class StaffSerializer(serializers.ModelSerializer):
 class KelasSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataKelas
-        fields = '__all__'
+        fields = ('kd_kelas', 'id_guru', 'id_siswa', 'lama_jam')
 
 
 class KeuanganSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataKeuangan
-        fields = '__all__'
+        fields = ('kategori', 'biaya')
 
 
 class BeritaSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataBerita
-        fields = '__all__'
+        fields = ('judul', 'isi', 'author')

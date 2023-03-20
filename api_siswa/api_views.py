@@ -6,4 +6,6 @@ from rest_framework import viewsets
 class SiswaViewSets(viewsets.ModelViewSet):
     queryset = DataSiswa.objects.all()
     serializer_class = ss
-    http_method_names = ['get', 'post']
+    lookup_field = "nis_siswa"
+    lookup_url_kwarg = "nis_siswa"
+    http_method_names = ['get']

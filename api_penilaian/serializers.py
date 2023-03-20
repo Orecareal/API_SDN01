@@ -4,10 +4,10 @@ from api_penilaian.models import DataAbsensiSiswa as dt_abs, DataNilaiSiswa as d
 class SiswaAbsensiSerializer(serializers.ModelSerializer):
     class Meta:
         model = dt_abs
-        fields = '__all__'
+        fields = ('kd_kelas', 'kd_mapel', 'keterangan', 'catatan')
 
 
 class NilaiSerializer(serializers.ModelSerializer):
     class Meta:
         model = dt_nilai
-        fields = '__all__'
+        fields = ('id_abs', 'test_type', 'nilai', 'catatan')

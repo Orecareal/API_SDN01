@@ -7,6 +7,8 @@ MapelGuruSerializer as mgs, KonselingSerializer as ks
 class GuruViewSets(viewsets.ModelViewSet):
     queryset = DataGuru.objects.all()
     serializer_class = gs
+    lookup_field = "kd_guru"
+    lookup_url_kwarg = "kd_guru"
     http_method_names = ['get']
 
 
@@ -19,6 +21,8 @@ class MapelGuruViewsets(viewsets.ModelViewSet):
 class MapelViewsets(viewsets.ModelViewSet):
     queryset = DataMapel.objects.all()
     serializer_class = ms
+    lookup_field = "kd_mapel"
+    lookup_url_kwarg = "kd_mapel"
     http_method_names = ['get']
     
 

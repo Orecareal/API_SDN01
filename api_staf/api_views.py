@@ -14,8 +14,6 @@ class StaffViewSets(viewsets.ModelViewSet):
 class KelasViewsets(viewsets.ModelViewSet):
     queryset = DataKelas.objects.all()
     serializer_class = ks
-    lookup_field = "kd_kelas"
-    lookup_url_kwarg = "kd_kelas"
     http_method_names = ['get']
 
 

@@ -23,4 +23,4 @@ class MapelSerializer(serializers.ModelSerializer):
 class KonselingSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataKonseling
-        fields = '__all__'
+        fields = ('kd_siswa', 'kd_guru', 'catatan', 'status')

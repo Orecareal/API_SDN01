@@ -76,7 +76,7 @@ class DataKeuangan(models.Model):
     updated = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
-        return f"{self.id}, {self.kategori} : Rp. {self.biaya}"
+        return f"{self.kategori} : Rp. {self.biaya}"
         
     class Meta:
          verbose_name_plural = 'Keuangan'
