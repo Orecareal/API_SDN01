@@ -32,6 +32,10 @@ kategori_pbyr = [
     ('Beasiswa', 'Beasiswa')
 ]
 
+based_role = [
+    ('Staff', 'Staff'),
+    ('Guru', 'Guru'),
+]
 
 class DataStaff(models.Model):
     kd_staf = models.CharField(max_length=13, null=False, unique=True)
@@ -50,7 +54,6 @@ class DataStaff(models.Model):
          verbose_name_plural = 'Staff'
 
          
-
 class DataKelas(models.Model):
     kd_kelas = models.CharField(max_length=13, choices=kelas)
     id_guru = models.ForeignKey(DataGuru, to_field="kd_guru", blank=True, null=True, on_delete=models.CASCADE)
@@ -94,3 +97,16 @@ class DataBerita(models.Model):
         
     class Meta:
          verbose_name_plural = 'Berita & Acara'
+
+
+class DataGaji(models.Model):
+    base_role = models.CharField(max_length=15, choices=based_role)
+    gaji = models.CharField(max_length=10)
+    created = models.DateTimeField(default=datetime.datetime.now())
+    updated = models.DateTimeField(default=datetime.datetime.now())
+
+    def __str__(self):
+        return f"{self.base_role} / {self.gaji}"
+        
+    class Meta:
+         verbose_name_plural = 'Gaji'
