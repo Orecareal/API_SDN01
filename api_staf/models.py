@@ -19,8 +19,23 @@ kelas = [
     ('5A', '5B'),
     ('6A', '6B'),
 ]
+
+role_staff = [
+    # 1 = Admin, 2 = Keuangan, 3 = Tata Usaha
+    ('Admin', 'Admin'),
+    ('Keuangan', 'Keuangan'),
+    ('Tata Usaha', 'Tata Usaha'),
+]
+
+kategori_pbyr = [
+    ('Reguler', 'Reguler'),
+    ('Beasiswa', 'Beasiswa')
+]
+
+
 class DataStaff(models.Model):
     kd_staf = models.CharField(max_length=13, null=False, unique=True)
+    role_staf = models.CharField(max_length=20, blank=True, choices=role_staff)
     nm_staff = models.CharField(max_length=100, null=False)
     jen_kel = models.CharField(max_length=12, choices=jen_kel)
     thn_aktif = models.DateField(default=datetime.datetime.now().strftime('%Y-%m-%d'))
@@ -47,3 +62,18 @@ class DataKelas(models.Model):
         
     class Meta:
          verbose_name_plural = 'Kelas'
+
+
+
+class DataKeuangan(models.Model):
+    # di db : 1 = Reguler, 2 = Beasiswa
+    kategori = models.CharField(max_length=100, choices=kategori_pbyr)
+    biaya = models.FloatField(default=0.00)
+    created = models.DateTimeField(default=datetime.datetime.now())
+    updated = models.DateTimeField(default=datetime.datetime.now())
+
+    def __str__(self):
+        return f"{self.id}, {self.kategori} : Rp. {self.biaya}"
+        
+    class Meta:
+         verbose_name_plural = 'Keuangan'

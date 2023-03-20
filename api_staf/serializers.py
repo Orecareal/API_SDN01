@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api_staf.models import  DataStaff, DataKelas
+from api_staf.models import  DataStaff, DataKelas, DataKeuangan
 
 
 class StaffSerializer(serializers.ModelSerializer):
@@ -11,4 +11,10 @@ class StaffSerializer(serializers.ModelSerializer):
 class KelasSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataKelas
+        fields = '__all__'
+
+
+class KeuanganSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DataKeuangan
         fields = '__all__'

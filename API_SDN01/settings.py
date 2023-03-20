@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'api_guru',
     'api_siswa',
     'api_penilaian',
+    'api_akutansi',
 ]
 
 MIDDLEWARE = [

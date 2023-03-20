@@ -7,6 +7,7 @@ jen_kel = [
     ('Perempuan', 'Perempuan')
 ]
 
+status = [('Reguler', 'Reguler'),('Beasiswa', 'Beasiswa')]
 
 class DataSiswa(models.Model):
     nis_siswa = models.CharField(max_length=13, unique=True)
@@ -17,11 +18,12 @@ class DataSiswa(models.Model):
     alamat = models.TextField(max_length=300, blank=True)
     no_telp = models.CharField(max_length=15, blank=True)
     email = models.CharField(max_length=100, blank=True, null=True)
+    status_pby = models.CharField(max_length=15, choices=status, blank=True)
     created = models.DateTimeField(default=datetime.datetime.now())
     updated = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
-        return f'{self.nis_siswa} - {self.nm_siswa}'
+        return f'{self.nis_siswa} - {self.nm_siswa} | {self.status_pby}'
 
     class Meta:
          verbose_name_plural = 'Siswa'

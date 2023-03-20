@@ -26,6 +26,7 @@ router = routers.DefaultRouter()
 router.register(r'staff', staff_views.StaffViewSets)
 
 router.register(r'kelas', staff_views.KelasViewsets)
+router.register(r'Keuangan', staff_views.KeuanganViewsets)
 
 router.register(r'mapel', guru_views.MapelViewsets)
 router.register(r'guru', guru_views.GuruViewSets)
